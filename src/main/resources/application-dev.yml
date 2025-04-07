@@ -1,0 +1,41 @@
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/*.xml
+
+spring:
+  shardingsphere:
+    datasource:
+      names: ds1   # 自定义数据源
+      ds1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://127.0.0.1:3307/wms_dev?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+        username: root
+        password: WSXS.130
+    rules:  # 配置分表策略   create_time 作为分片键
+      sharding:
+        tables:
+          t_expense:
+            actual-data-nodes: ds1.t_expense_$->{0..10}
+            table-strategy: # 分表策略
+              standard:
+                sharding-column: create_time
+                sharding-algorithm-name: table-alg
+            key-generate-strategy:
+              column: id
+              key-generator-name: pkey-alg
+
+        sharding-algorithms:  # 分片算法定义
+          table-alg:
+            type: VOLUME_RANGE
+            props:
+              range-lower: "1577808000000"   ## 2020-01-01 00:00:00
+              range-upper: "1893427200000"   ## 2030-01-01 00:00:00
+              sharding-volume: "31622400000" ## 分片大小 一年
+        key-generators:
+          pkey-alg:          #  前面配置的主键生成算法名称
+            type: SNOWFLAKE  #  雪花算法
+    props:
+      sql-show: true

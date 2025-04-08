@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xs.mapper.ExpenseTest500Mapper">
+
+    <resultMap id="BaseResultMap" type="com.xs.model.ExpenseTest500">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="subBillId" column="sub_bill_id" jdbcType="BIGINT"/>
+            <result property="expenseId" column="expense_id" jdbcType="BIGINT"/>
+            <result property="expenseOrderTypeId" column="expense_order_type_id" jdbcType="BIGINT"/>
+            <result property="expenseOrderId" column="expense_order_id" jdbcType="BIGINT"/>
+            <result property="chargeUnitId" column="charge_unit_id" jdbcType="BIGINT"/>
+            <result property="deductionMethodId" column="deduction_method_id" jdbcType="BIGINT"/>
+            <result property="currencyId" column="currency_id" jdbcType="BIGINT"/>
+            <result property="productVersionId" column="product_version_id" jdbcType="BIGINT"/>
+            <result property="unitId" column="unit_id" jdbcType="BIGINT"/>
+            <result property="unitPrice" column="unit_price" jdbcType="DECIMAL"/>
+            <result property="amount" column="amount" jdbcType="DECIMAL"/>
+            <result property="number" column="number" jdbcType="DECIMAL"/>
+            <result property="zoneDetailId" column="zone_detail_id" jdbcType="BIGINT"/>
+            <result property="notes" column="notes" jdbcType="VARCHAR"/>
+            <result property="omsSkuId" column="oms_sku_id" jdbcType="BIGINT"/>
+            <result property="weightingValue" column="weighting_value" jdbcType="DECIMAL"/>
+            <result property="isDel" column="is_del" jdbcType="TINYINT"/>
+            <result property="creatorId" column="creator_id" jdbcType="BIGINT"/>
+            <result property="createTime" column="create_time" jdbcType="INTEGER"/>
+            <result property="modifierId" column="modifier_id" jdbcType="BIGINT"/>
+            <result property="modifyTime" column="modify_time" jdbcType="INTEGER"/>
+            <result property="whetherCalculation" column="whether_calculation" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,sub_bill_id,expense_id,
+        expense_order_type_id,expense_order_id,charge_unit_id,
+        deduction_method_id,currency_id,product_version_id,
+        unit_id,unit_price,amount,
+        number,zone_detail_id,notes,
+        oms_sku_id,weighting_value,is_del,
+        creator_id,create_time,modifier_id,
+        modify_time,whether_calculation
+    </sql>
+    <insert id="batchSave">
+        insert into t_expense_test_500
+            (sub_bill_id, expense_id, expense_order_type_id, expense_order_id, charge_unit_id,
+             deduction_method_id, currency_id, product_version_id, unit_id, unit_price, amount,
+             number, zone_detail_id, notes, oms_sku_id, weighting_value, is_del, creator_id,
+             create_time, modifier_id, modify_time, whether_calculation)
+        values
+            <foreach collection="list" separator="," item="item">
+                (#{item.subBillId}, #{item.expenseId}, #{item.expenseOrderTypeId},
+                #{item.expenseOrderId}, #{item.chargeUnitId}, #{item.deductionMethodId},
+                #{item.currencyId}, #{item.productVersionId}, #{item.unitId}, #{item.unitPrice},
+                #{item.amount}, #{item.number}, #{item.zoneDetailId}, #{item.notes},
+                #{item.omsSkuId}, #{item.weightingValue}, #{item.isDel}, #{item.creatorId},
+                #{item.createTime}, #{item.modifierId}, #{item.modifyTime}, #{item.whetherCalculation})
+            </foreach>
+    </insert>
+</mapper>

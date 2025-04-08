@@ -23,9 +23,6 @@ spring:
               standard:
                 sharding-column: create_time
                 sharding-algorithm-name: table-alg
-            key-generate-strategy:
-              column: id
-              key-generator-name: pkey-alg
 
         sharding-algorithms:  # 分片算法定义
           table-alg:
@@ -37,5 +34,11 @@ spring:
         key-generators:
           pkey-alg:          #  前面配置的主键生成算法名称
             type: SNOWFLAKE  #  雪花算法
+            props:
+              worker-id: 3   # 管理端 1  客户端 2    范围【0 ~ 1023】
+        default-key-generate-strategy:
+          column: id
+          key-generator-name: pkey-alg
+
     props:
       sql-show: true

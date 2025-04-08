@@ -3,6 +3,7 @@ package com.xs.controller;
 import cn.hutool.json.JSONUtil;
 import com.xs.mapper.ExpenseMapper;
 import com.xs.model.Expense;
+import com.xs.service.ExpenseService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,6 +27,8 @@ import java.util.Date;
 public class ExpenseController {
 
     @Resource
+    private ExpenseService expenseService;
+    @Resource
     private ExpenseMapper expenseMapper;
 
     @GetMapping("/hello")
@@ -48,7 +51,7 @@ public class ExpenseController {
 //        expense.setCreateTime(System.currentTimeMillis());
 //        expense.setModifyTime(System.currentTimeMillis());
         // 调用ExpenseMapper的save方法保存Expense对象
-        expenseMapper.insert(expense);
+        expenseService.saveExpense(expense);
         return "success";
     }
 

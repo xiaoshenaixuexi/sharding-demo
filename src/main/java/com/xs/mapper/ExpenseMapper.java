@@ -1,6 +1,7 @@
 package com.xs.mapper;
 
 import com.xs.model.Expense;
+import com.xs.vo.ExpenseVO;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
@@ -19,10 +20,12 @@ import java.util.List;
 public interface ExpenseMapper {
 
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
-    @Insert("INSERT INTO t_expense (`expense_type`, `unit`, `price`, `create_time`, `modify_time`) VALUES (#{expense.expenseType},#{expense.unit},#{expense.price},#{expense.createTime},#{expense.modifyTime})")
+    @Insert("INSERT INTO t_expense (`expense_type`, `unit`, `price`, `product_id`, `create_time`, `modify_time`) VALUES (#{expense.expenseType},#{expense.unit},#{expense.price}, #{expense.productId}, #{expense.createTime},#{expense.modifyTime})")
     int insert(@Param("expense") Expense expense);
 
-    List<Expense> getExpenseList();
+    List<ExpenseVO> selectExpenseList();
+
+    Integer selectCount();
 
 }
 

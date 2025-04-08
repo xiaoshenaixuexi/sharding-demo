@@ -1,11 +1,40 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xs.mapper.ExpenseMapper">
-    <sql id="Base_Column_List">
-        id, expense_type, unit, price, create_time, modify_time
-    </sql>
-    <select id="getExpenseList" resultType="com.xs.model.Expense">
-        select * from t_expense;
-    </select>
 
+    <resultMap id="BaseResultMap" type="com.xs.model.Expense">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="expenseType" column="expense_type" jdbcType="INTEGER"/>
+            <result property="unit" column="unit" jdbcType="INTEGER"/>
+            <result property="price" column="price" jdbcType="DECIMAL"/>
+            <result property="productId" column="product_id" jdbcType="BIGINT"/>
+            <result property="createTime" column="create_time" jdbcType="BIGINT"/>
+            <result property="modifyTime" column="modify_time" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,expense_type,unit,
+        price,product_id,create_time,
+        modify_time
+    </sql>
+
+    <select id="selectExpenseList" resultType="com.xs.vo.ExpenseVO">
+        select
+            te.id as id,
+            te.expense_type as expenseType,
+            te.unit as unit,
+            te.price as price,
+            te.product_id as productId,
+            te.create_time as createTime,
+            tp.id as productId,
+            tp.name as productName
+        from t_expense te
+        left join t_product tp on te.product_id = tp.id;
+    </select>
+    <select id="selectCount" resultType="java.lang.Integer">
+        select count(*)
+        from t_expense
+    </select>
 </mapper>

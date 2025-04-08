@@ -43,13 +43,16 @@ public class ExpenseController {
         expense.setExpenseType(1);
         expense.setUnit(1);
         expense.setPrice(new BigDecimal("100.00"));
-
+        int productId = (int)((Math.random() * 3) + 1);
+        expense.setProductId(Long.valueOf(productId));
+        int year = (int)((Math.random() * 10) + 20);
+        int month = (int)((Math.random() * 9) + 1);
+        int day = (int)((Math.random() * 9) + 1);
+        String timeStr = "20" + year + "-0" + month + "-0" + day + " 10:03:00";
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date = sdf.parse("2026-04-02 10:03:00");
+        Date date = sdf.parse(timeStr);
         expense.setCreateTime(date.getTime());
         expense.setModifyTime(date.getTime());
-//        expense.setCreateTime(System.currentTimeMillis());
-//        expense.setModifyTime(System.currentTimeMillis());
         // 调用ExpenseMapper的save方法保存Expense对象
         expenseService.saveExpense(expense);
         return "success";
@@ -58,7 +61,12 @@ public class ExpenseController {
     @GetMapping("/getExpenseList")
     public String getExpenseList() {
         // 调用ExpenseMapper的getExpenseList方法获取所有Expense对象
-        return JSONUtil.toJsonStr(expenseMapper.getExpenseList());
+        return JSONUtil.toJsonStr(expenseMapper.selectExpenseList());
+    }
+
+    @GetMapping("/count")
+    public Integer count() {
+        return expenseMapper.selectCount();
     }
 
 }

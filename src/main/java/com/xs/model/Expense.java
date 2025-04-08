@@ -42,6 +42,11 @@ public class Expense {
     private BigDecimal price;
 
     /**
+     * 商品ID
+     */
+    private Long productId;
+
+    /**
      *
      */
     private Long createTime;

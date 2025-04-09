@@ -18,7 +18,7 @@ spring:
       sharding:
         tables:
           t_expense:
-            actual-data-nodes: ds1.t_expense_$->{0..10}
+            actual-data-nodes: ds1.t_expense_202$->{0..9}, ds1.t_expense_2030
             table-strategy: # 分表策略
               standard:
                 sharding-column: create_time
@@ -26,11 +26,9 @@ spring:
 
         sharding-algorithms:  # 分片算法定义
           table-alg:
-            type: VOLUME_RANGE
+            type: CUSTOMER_TIMESTAMP_SPI
             props:
-              range-lower: "1577808000000"   ## 2020-01-01 00:00:00
-              range-upper: "1893427200000"   ## 2030-01-01 00:00:00
-              sharding-volume: "31622400000" ## 分片大小 一年
+              auto-create-table-lower: "1577808000000"   ## 2020-01-01 00:00:00
         key-generators:
           pkey-alg:          #  前面配置的主键生成算法名称
             type: SNOWFLAKE  #  雪花算法

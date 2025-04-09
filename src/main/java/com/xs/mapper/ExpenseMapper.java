@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public interface ExpenseMapper {
     @Insert("INSERT INTO t_expense (`expense_type`, `unit`, `price`, `product_id`, `create_time`, `modify_time`) VALUES (#{expense.expenseType},#{expense.unit},#{expense.price}, #{expense.productId}, #{expense.createTime},#{expense.modifyTime})")
     int insert(@Param("expense") Expense expense);
 
-    List<ExpenseVO> selectExpenseList();
+    List<ExpenseVO> selectExpenseList(@Param("offset") Integer offset, @Param("pageSize") Integer pageSize);
 
     Integer selectCount();
 

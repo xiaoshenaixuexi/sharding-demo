@@ -31,10 +31,13 @@
             tp.id as productId,
             tp.name as productName
         from t_expense te
-        left join t_product tp on te.product_id = tp.id;
+        left join t_product tp on te.product_id = tp.id
+        where te.create_time between 1675180800000 and 1732982400000
+        limit #{offset}, #{pageSize};
     </select>
     <select id="selectCount" resultType="java.lang.Integer">
         select count(*)
         from t_expense
+        where create_time between 1675180800000 and 1732982400000
     </select>
 </mapper>

@@ -210,3 +210,126 @@ CREATE TABLE `t_product` (
                              `create_time` int (11),
                              `modify_time` int (11)
 ) ENGINE = INNODB CHARSET = utf8;
+
+
+CREATE TABLE `t_expense_2020` (
+                               `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键自增',
+                               `expense_type` INT NOT NULL DEFAULT 0 COMMENT '类型 0 - 付款  1 - 收款',
+                               `unit` INT NOT NULL DEFAULT 0 COMMENT '单位 0 - RMB 1 - USD',
+                               `price` DECIMAL(10,2) NOT NULL DEFAULT 0.00 COMMENT '金额',
+                               `product_id` BIGINT(20) NOT NULL DEFAULT 0 comment '产品id',
+                               `create_time`         BIGINT,
+                               `modify_time`         BIGINT,
+                               PRIMARY KEY (`id`)
+) ENGINE = INNODB CHARSET = utf8;
+
+CREATE TABLE `t_expense_2021` (
+                               `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键自增',
+                               `expense_type` INT NOT NULL DEFAULT 0 COMMENT '类型 0 - 付款  1 - 收款',
+                               `unit` INT NOT NULL DEFAULT 0 COMMENT '单位 0 - RMB 1 - USD',
+                               `price` DECIMAL(10,2) NOT NULL DEFAULT 0.00 COMMENT '金额',
+                               `product_id` BIGINT(20) NOT NULL DEFAULT 0 comment '产品id',
+                               `create_time`         BIGINT,
+                               `modify_time`         BIGINT,
+                               PRIMARY KEY (`id`)
+) ENGINE = INNODB CHARSET = utf8;
+
+CREATE TABLE `t_expense_2022` (
+                               `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键自增',
+                               `expense_type` INT NOT NULL DEFAULT 0 COMMENT '类型 0 - 付款  1 - 收款',
+                               `unit` INT NOT NULL DEFAULT 0 COMMENT '单位 0 - RMB 1 - USD',
+                               `price` DECIMAL(10,2) NOT NULL DEFAULT 0.00 COMMENT '金额',
+                               `product_id` BIGINT(20) NOT NULL DEFAULT 0 comment '产品id',
+                               `create_time`         BIGINT,
+                               `modify_time`         BIGINT,
+                               PRIMARY KEY (`id`)
+) ENGINE = INNODB CHARSET = utf8;
+
+CREATE TABLE `t_expense_2023` (
+                               `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键自增',
+                               `expense_type` INT NOT NULL DEFAULT 0 COMMENT '类型 0 - 付款  1 - 收款',
+                               `unit` INT NOT NULL DEFAULT 0 COMMENT '单位 0 - RMB 1 - USD',
+                               `price` DECIMAL(10,2) NOT NULL DEFAULT 0.00 COMMENT '金额',
+                               `product_id` BIGINT(20) NOT NULL DEFAULT 0 comment '产品id',
+                               `create_time`         BIGINT,
+                               `modify_time`         BIGINT,
+                               PRIMARY KEY (`id`)
+) ENGINE = INNODB CHARSET = utf8;
+
+
+CREATE TABLE `t_expense_2024` (
+                               `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键自增',
+                               `expense_type` INT NOT NULL DEFAULT 0 COMMENT '类型 0 - 付款  1 - 收款',
+                               `unit` INT NOT NULL DEFAULT 0 COMMENT '单位 0 - RMB 1 - USD',
+                               `price` DECIMAL(10,2) NOT NULL DEFAULT 0.00 COMMENT '金额',
+                               `product_id` BIGINT(20) NOT NULL DEFAULT 0 comment '产品id',
+                               `create_time`         BIGINT,
+                               `modify_time`         BIGINT,
+                               PRIMARY KEY (`id`)
+) ENGINE = INNODB CHARSET = utf8;
+
+CREATE TABLE `t_expense_2025` (
+                               `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键自增',
+                               `expense_type` INT NOT NULL DEFAULT 0 COMMENT '类型 0 - 付款  1 - 收款',
+                               `unit` INT NOT NULL DEFAULT 0 COMMENT '单位 0 - RMB 1 - USD',
+                               `price` DECIMAL(10,2) NOT NULL DEFAULT 0.00 COMMENT '金额',
+                               `product_id` BIGINT(20) NOT NULL DEFAULT 0 comment '产品id',
+                               `create_time`         BIGINT,
+                               `modify_time`         BIGINT,
+                               PRIMARY KEY (`id`)
+) ENGINE = INNODB CHARSET = utf8;
+
+CREATE TABLE `t_expense_2026` (
+                               `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键自增',
+                               `expense_type` INT NOT NULL DEFAULT 0 COMMENT '类型 0 - 付款  1 - 收款',
+                               `unit` INT NOT NULL DEFAULT 0 COMMENT '单位 0 - RMB 1 - USD',
+                               `price` DECIMAL(10,2) NOT NULL DEFAULT 0.00 COMMENT '金额',
+                               `product_id` BIGINT(20) NOT NULL DEFAULT 0 comment '产品id',
+                               `create_time`         BIGINT,
+                               `modify_time`         BIGINT,
+                               PRIMARY KEY (`id`)
+) ENGINE = INNODB CHARSET = utf8;
+
+CREATE TABLE `t_expense_2027` (
+                               `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键自增',
+                               `expense_type` INT NOT NULL DEFAULT 0 COMMENT '类型 0 - 付款  1 - 收款',
+                               `unit` INT NOT NULL DEFAULT 0 COMMENT '单位 0 - RMB 1 - USD',
+                               `price` DECIMAL(10,2) NOT NULL DEFAULT 0.00 COMMENT '金额',
+                               `product_id` BIGINT(20) NOT NULL DEFAULT 0 comment '产品id',
+                               `create_time`         BIGINT,
+                               `modify_time`         BIGINT,
+                               PRIMARY KEY (`id`)
+) ENGINE = INNODB CHARSET = utf8;
+
+CREATE TABLE `t_expense_2028` (
+                               `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键自增',
+                               `expense_type` INT NOT NULL DEFAULT 0 COMMENT '类型 0 - 付款  1 - 收款',
+                               `unit` INT NOT NULL DEFAULT 0 COMMENT '单位 0 - RMB 1 - USD',
+                               `price` DECIMAL(10,2) NOT NULL DEFAULT 0.00 COMMENT '金额',
+                               `product_id` BIGINT(20) NOT NULL DEFAULT 0 comment '产品id',
+                               `create_time`         BIGINT,
+                               `modify_time`         BIGINT,
+                               PRIMARY KEY (`id`)
+) ENGINE = INNODB CHARSET = utf8;
+
+CREATE TABLE `t_expense_2029` (
+                               `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键自增',
+                               `expense_type` INT NOT NULL DEFAULT 0 COMMENT '类型 0 - 付款  1 - 收款',
+                               `unit` INT NOT NULL DEFAULT 0 COMMENT '单位 0 - RMB 1 - USD',
+                               `price` DECIMAL(10,2) NOT NULL DEFAULT 0.00 COMMENT '金额',
+                               `product_id` BIGINT(20) NOT NULL DEFAULT 0 comment '产品id',
+                               `create_time`         BIGINT,
+                               `modify_time`         BIGINT,
+                               PRIMARY KEY (`id`)
+) ENGINE = INNODB CHARSET = utf8;
+
+CREATE TABLE `t_expense_2030` (
+                                `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键自增',
+                                `expense_type` INT NOT NULL DEFAULT 0 COMMENT '类型 0 - 付款  1 - 收款',
+                                `unit` INT NOT NULL DEFAULT 0 COMMENT '单位 0 - RMB 1 - USD',
+                                `price` DECIMAL(10,2) NOT NULL DEFAULT 0.00 COMMENT '金额',
+                                `product_id` BIGINT(20) NOT NULL DEFAULT 0 comment '产品id',
+                                `create_time`         BIGINT,
+                                `modify_time`         BIGINT,
+                                PRIMARY KEY (`id`)
+) ENGINE = INNODB CHARSET = utf8;

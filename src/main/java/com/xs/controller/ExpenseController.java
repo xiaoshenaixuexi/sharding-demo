@@ -5,6 +5,7 @@ import com.xs.mapper.ExpenseMapper;
 import com.xs.model.Expense;
 import com.xs.service.ExpenseService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -49,6 +50,7 @@ public class ExpenseController {
         int month = (int)((Math.random() * 9) + 1);
         int day = (int)((Math.random() * 9) + 1);
         String timeStr = "20" + year + "-0" + month + "-0" + day + " 10:03:00";
+//        String timeStr = "2030-01-01 00:00:00";
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = sdf.parse(timeStr);
         expense.setCreateTime(date.getTime());
@@ -58,10 +60,10 @@ public class ExpenseController {
         return "success";
     }
 
-    @GetMapping("/getExpenseList")
-    public String getExpenseList() {
+    @GetMapping("/getExpenseList/{offset}/{pageSize}")
+    public String getExpenseList(@PathVariable Integer offset, @PathVariable Integer pageSize) {
         // 调用ExpenseMapper的getExpenseList方法获取所有Expense对象
-        return JSONUtil.toJsonStr(expenseMapper.selectExpenseList());
+        return JSONUtil.toJsonStr(expenseMapper.selectExpenseList(offset, pageSize));
     }
 
     @GetMapping("/count")
